@@ -116,8 +116,9 @@ python DFAD_camvid_deeplab.py --ckpt checkpoint/teacher/camvid-deeplabv3_resnet5
 ```
 
 Our segmentation experiments require 10 GB memory with a batch size of 64 on a single Quadro P6000. The learning rate will be decayed at 100 epochs and 200 epochs and the mIoU reaches 0.5346 at 232 epochs.
-
-![mIoU-Curve-CamVid](images/miou-camvid.png)
+<div align="center">
+<img src="images/miou-camvid.png" width="80%">
+</div>
 
 #### NYUv2
 ```bash
@@ -149,3 +150,9 @@ _Note: Batch size has a great influence on the results. We use a small batch siz
     primaryClass={cs.LG}
 }
 ```
+
+## Acknowledgement
+
+* ResNet, LeNet and GeneratorA from [Data-Efficient-Model-Compression](https://github.com/huawei-noah/Data-Efficient-Model-Compression)  
+* MobileNetv2 from [pytorch-deeplab-xception](https://github.com/jfzhang95/pytorch-deeplab-xception)
+* DeepLabv3 from [torchvision](https://github.com/pytorch/vision)
