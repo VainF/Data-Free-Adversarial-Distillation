@@ -1,0 +1,6 @@
+*.pt
+.vscode
+__pycache__
+data
+*.pyc
+*.csv
