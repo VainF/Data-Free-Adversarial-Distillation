@@ -141,13 +141,11 @@ _Note: Batch size has a great influence on the results. We use a small batch siz
 
 ## Citation
 ```
-@misc{fang2019datafree,
-    title={Data-Free Adversarial Distillation},
-    author={Gongfan Fang and Jie Song and Chengchao Shen and Xinchao Wang and Da Chen and Mingli Song},
-    year={2019},
-    eprint={1912.11006},
-    archivePrefix={arXiv},
-    primaryClass={cs.LG}
+@article{fang2019datafree,
+    title={Data-Free Adversarial Distillation},	
+    author={Gongfan Fang and Jie Song and Chengchao Shen and Xinchao Wang and Da Chen and Mingli Song},	  
+    journal={arXiv preprint arXiv:1912.11006},	
+    year={2019}
 }
 ```
 
