@@ -66,7 +66,7 @@ Download datasets from the following links and extract them to *./data*:
 
 ### **2. Train teachers and students**
 
-Start the visdom server on port 15550 for visualization. You can visit [127.0.0.1:15550](127.0.0.1:15550) to check training logs. In distillation, We validate our models every 50 iterations. For the sake of simplicity, we regard such a period as an **"epoch"**.
+Start the visdom server on port 15550 for visualization. You can visit [127.0.0.1:15550](127.0.0.1:15550) to check training logs. In distillation, we validate our models every 50 iterations. For the sake of simplicity, we regard such a period as an **"epoch"**.
 
 ```bash
 visdom -p 15550
