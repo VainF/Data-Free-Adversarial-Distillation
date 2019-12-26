@@ -125,6 +125,12 @@ python train_teacher_seg.py --model deeplabv3_resnet50 --dataset nyuv2 --data_ro
 python DFAD_nyu_deeplab.py --ckpt checkpoint/teacher/nyuv2-deeplabv3_resnet50.pt --data_root ./data/NYUv2 --scheduler
 ```
 
+## Results
+
+<img src="images/classification-results.png" alt="cls-results" align="middle">
+<br>
+<img src="images/segmentation-results.png" alt="seg-results" align="middle">
+
 ## Citation
 ```
 @misc{fang2019datafree,
