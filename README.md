@@ -136,9 +136,7 @@ python DFAD_nyu_deeplab.py --ckpt checkpoint/teacher/nyuv2-deeplabv3_resnet50.pt
 <img src="images/segmentation-results.png" alt="seg-results" aligned="middle">
 </div>
 
-_Note: Batch size has a great influence on the experimental results. When comparing these methods, we use a small batch size (e.g. 256 for CIFAR-10), so the accuracy of DAFL is lower than that of the original paper._
-
-
+_Note: Batch size has a great influence on the results. We use a small batch size (e.g. 256 for CIFAR-10) in our experiments, so the accuracy of DAFL is lower than that of the original paper._
 
 ## Citation
 ```
