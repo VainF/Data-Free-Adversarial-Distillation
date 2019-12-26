@@ -126,11 +126,11 @@ python DFAD_nyu_deeplab.py --ckpt checkpoint/teacher/nyuv2-deeplabv3_resnet50.pt
 ```
 
 ## Results
-<center>
+<div align="center">
 <img src="images/classification-results.png" alt="cls-results" aligned="middle">
 <br>
 <img src="images/segmentation-results.png" alt="seg-results" aligned="middle">
-</center>
+</div>
 
 ## Citation
 ```
