@@ -1,6 +1,8 @@
-# DFAD
+# Data-Free Adversarial Distillation
 
-The official implementation of paper: *Data-Free Adversarial Distillation*
+_Gongfan Fang, Jie Song, Chengchao Shen, Xinchao Wang, Da Chen, Mingli Song_
+
+The official implementation of paper: **Data-Free Adversarial Distillation** [[pdf](https://arxiv.org/abs/1912.11006)]
 
 DFAD aims to learn a comparable student model from a pretrained teacher model **without any real-world data**. Inspired by human learning behavior, we set up a min-max game between the student, the teacher and a generator. In this game, the generator poses several difficult questions (**_"hard samples"_**), while the student model learns how to answer those questions from the teacher model. 
 
@@ -34,7 +36,7 @@ python DFAD_mnist.py --ckpt checkpoint/teacher/mnist-lenet5.pt # --verbose
 
 ### **0. Download Pretrained Models (optional)**
 
-You can download **our pretrained teacher models** from [Dropbox]() and extract the .pt files to *./checkpoint/teacher/*. 
+You can download **our pretrained teacher models** from [Dropbox](https://www.dropbox.com/sh/xh9eqq0iknagwwc/AACTQGte7hecIcr-DexD7z9ea?dl=0) and extract the .pt files to *./checkpoint/teacher/*. 
 
 ### **1. Prepare Datasets**
 
@@ -121,4 +123,16 @@ python train_teacher_seg.py --model deeplabv3_resnet50 --dataset nyuv2 --data_ro
 
 # Student
 python DFAD_nyu_deeplab.py --ckpt checkpoint/teacher/nyuv2-deeplabv3_resnet50.pt --data_root ./data/NYUv2 --scheduler
+```
+
+## Citation
+```
+@misc{fang2019datafree,
+    title={Data-Free Adversarial Distillation},
+    author={Gongfan Fang and Jie Song and Chengchao Shen and Xinchao Wang and Da Chen and Mingli Song},
+    year={2019},
+    eprint={1912.11006},
+    archivePrefix={arXiv},
+    primaryClass={cs.LG}
+}
 ```
