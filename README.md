@@ -131,9 +131,9 @@ python DFAD_nyu_deeplab.py --ckpt checkpoint/teacher/nyuv2-deeplabv3_resnet50.pt
 ## Results
 
 <div align="center">
-<img src="images/classification-results.png" alt="cls-results" aligned="middle">
+<img src="images/classification-results.png" >
 <br>
-<img src="images/segmentation-results.png" alt="seg-results" aligned="middle">
+<img src="images/segmentation-results.png" width="40%">
 </div>
 
 _Note: Batch size has a great influence on the results. We use a small batch size (e.g. 256 for CIFAR-10) in our experiments, so the accuracy of DAFL is lower than that of the original paper._
