@@ -6,7 +6,7 @@ _Gongfan Fang, Jie Song, Chengchao Shen, Xinchao Wang, Da Chen, Mingli Song_
 DFAD aims to learn a comparable student model from a pretrained teacher model **without any real-world data**. Inspired by human learning behavior, we set up a min-max game between the student, the teacher and a generator. In this game, the generator poses several difficult questions (**_"hard samples"_**), while the student model learns how to answer those questions from the teacher model. 
 
 <div align="center">
-<img src="images/DFAD-framework.png" width="60%">
+<img src="images/DFAD-framework.png" width="50%">
 </div>
 
 ![seg_results](images/seg-results.png)
@@ -137,6 +137,8 @@ python DFAD_nyu_deeplab.py --ckpt checkpoint/teacher/nyuv2-deeplabv3_resnet50.pt
 </div>
 
 _Note: Batch size has a great influence on the experimental results. When comparing these methods, we use a small batch size (e.g. 256 for CIFAR-10), so the accuracy of DAFL is lower than that of the original paper._
+
+
 
 ## Citation
 ```
