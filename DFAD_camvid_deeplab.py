@@ -19,7 +19,7 @@ import numpy as np
 
 vp = VisdomPlotter('15550', env='DFAD-camvid')
 
-def train(args, teacher, student, generator, device, train_loader, optimizer, epoch):
+def train(args, teacher, student, generator, device, optimizer, epoch):
     teacher.eval()
     student.train()
     generator.train()
@@ -156,7 +156,7 @@ def main():
     os.makedirs('checkpoint/student', exist_ok=True)
     print(args)
 
-    train_loader, test_loader = get_dataloader(args)
+    _, test_loader = get_dataloader(args)
     teacher = network.segmentation.deeplabv3.deeplabv3_resnet50(num_classes=11)
     student = network.segmentation.deeplabv3.deeplabv3_mobilenet(num_classes=11, dropout_p=0.5, pretrained_backbone=False)
     generator = network.gan.GeneratorB(nz=args.nz, img_size=128)
@@ -193,7 +193,7 @@ def main():
     miou_list = []
     for epoch in range(1, args.epochs + 1):
         # Train
-        train(args, teacher=teacher, student=student, generator=generator, device=device, train_loader=train_loader, optimizer=[optimizer_S, optimizer_G], epoch=epoch)
+        train(args, teacher=teacher, student=student, generator=generator, device=device, optimizer=[optimizer_S, optimizer_G], epoch=epoch)
         # Test
         results = test(args, student, teacher, generator, device, test_loader)
         

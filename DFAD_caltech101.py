@@ -17,7 +17,7 @@ import numpy as np
 
 vp = VisdomPlotter('15550', env='DFAD-caltech101')
 
-def train(args, teacher, student, generator, device, train_loader, optimizer, epoch):
+def train(args, teacher, student, generator, device, optimizer, epoch):
     teacher.eval()
     student.train()
     generator.train()
@@ -133,7 +133,7 @@ def main():
     kwargs = {'num_workers': 1, 'pin_memory': True} if use_cuda else {}
     print(args)
 
-    train_loader, test_loader = get_dataloader(args)
+    _, test_loader = get_dataloader(args)
     teacher = torchvision.models.resnet34(num_classes=101)
     student = torchvision.models.resnet18(num_classes=101)
     generator = network.gan.GeneratorB(nz=args.nz, nc=3, img_size=128)
@@ -164,7 +164,7 @@ def main():
             scheduler_S.step()
             scheduler_G.step()
 
-        train(args, teacher=teacher, student=student, generator=generator, device=device, train_loader=train_loader, optimizer=[optimizer_S, optimizer_G], epoch=epoch)
+        train(args, teacher=teacher, student=student, generator=generator, device=device, optimizer=[optimizer_S, optimizer_G], epoch=epoch)
         # Test
         acc = test(args, student, generator, device, test_loader)
         acc_list.append(acc)

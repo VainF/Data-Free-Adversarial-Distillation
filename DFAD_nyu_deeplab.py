@@ -20,7 +20,7 @@ from PIL import Image
 
 vp = VisdomPlotter('15550', env='DFAD-nyuv2')
 
-def train(args, teacher, student, generator, device, train_loader, optimizer, epoch):
+def train(args, teacher, student, generator, device, optimizer, epoch):
     teacher.eval()
     student.train()
     generator.train()
@@ -156,7 +156,7 @@ def main():
     kwargs = {'num_workers': 1, 'pin_memory': True} if use_cuda else {}
     print(args)
 
-    train_loader, test_loader = get_dataloader(args)
+    _, test_loader = get_dataloader(args)
     teacher = network.segmentation.deeplabv3.deeplabv3_resnet50(num_classes=13)
     student = network.segmentation.deeplabv3.deeplabv3_mobilenet(num_classes=13, dropout_p=0.5, pretrained_backbone=False)
     generator = network.gan.GeneratorB(nz=args.nz, nc=3, img_size=128)
@@ -188,7 +188,7 @@ def main():
 
     for epoch in range(1, args.epochs + 1):
         # Train
-        train(args, teacher=teacher, student=student, generator=generator, device=device, train_loader=train_loader, optimizer=[optimizer_S, optimizer_G], epoch=epoch)
+        train(args, teacher=teacher, student=student, generator=generator, device=device, optimizer=[optimizer_S, optimizer_G], epoch=epoch)
         # Test
         results = test(args, student, teacher, generator, device, test_loader)
 

@@ -17,7 +17,7 @@ import torchvision
 
 #vp = VisdomPlotter('15550', env='DFAD-mnist')
 
-def train(args, teacher, student, generator, device, train_loader, optimizer, epoch):
+def train(args, teacher, student, generator, device, optimizer, epoch):
     teacher.eval()
     student.train()
     generator.train()
@@ -135,7 +135,7 @@ def main():
     os.makedirs('checkpoint/student', exist_ok=True)
     print(args)
 
-    train_loader, test_loader = get_dataloader(args)
+    _, test_loader = get_dataloader(args)
     teacher = network.lenet.LeNet5()
     student = network.lenet.LeNet5Half()
     generator = network.gan.GeneratorA(nz=args.nz, nc=1, img_size=32)
@@ -165,7 +165,7 @@ def main():
             scheduler_S.step()
             scheduler_G.step()
 
-        train(args, teacher=teacher, student=student, generator=generator, device=device, train_loader=train_loader, optimizer=[optimizer_S, optimizer_G], epoch=epoch)
+        train(args, teacher=teacher, student=student, generator=generator, device=device, optimizer=[optimizer_S, optimizer_G], epoch=epoch)
         # Test
         acc = test(args, student, generator, device, test_loader, epoch)
         acc_list.append(acc)

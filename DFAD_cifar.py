@@ -14,7 +14,7 @@ import torchvision
 
 vp = VisdomPlotter('15550', env='DFAD-cifar')
 
-def train(args, teacher, student, generator, device, train_loader, optimizer, epoch):
+def train(args, teacher, student, generator, device, optimizer, epoch):
     teacher.eval()
     student.train()
     generator.train()
@@ -131,7 +131,7 @@ def main():
     kwargs = {'num_workers': 1, 'pin_memory': True} if use_cuda else {}
     print(args)
 
-    train_loader, test_loader = get_dataloader(args)
+    _, test_loader = get_dataloader(args)
 
     num_classes = 10 if args.dataset=='cifar10' else 100
     teacher = network.resnet_8x.ResNet34_8x(num_classes=num_classes)
@@ -164,7 +164,7 @@ def main():
             scheduler_S.step()
             scheduler_G.step()
 
-        train(args, teacher=teacher, student=student, generator=generator, device=device, train_loader=train_loader, optimizer=[optimizer_S, optimizer_G], epoch=epoch)
+        train(args, teacher=teacher, student=student, generator=generator, device=device, optimizer=[optimizer_S, optimizer_G], epoch=epoch)
         # Test
         acc = test(args, student, generator, device, test_loader, epoch)
         acc_list.append(acc)
