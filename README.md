@@ -2,7 +2,7 @@
 
 _Gongfan Fang, Jie Song, Chengchao Shen, Xinchao Wang, Da Chen, Mingli Song_
 
-**!!Note**: We found that a similar work has been published before ours: https://arxiv.org/abs/1905.09768.  If you find that our work is useful for your research, please consider citing their paper first. 
+**!!Note**: We found that a similar work has been published before ours: https://arxiv.org/abs/1905.09768.  If you find that our work is useful for your research, please consider citing **their paper first**. 
 
 DFAD aims to learn a comparable student model from a pretrained teacher model **without any real-world data**. Inspired by human learning behavior, we set up a min-max game between the student, the teacher and a generator. In this game, the generator poses several difficult questions (**_"hard samples"_**), while the student model learns how to answer those questions from the teacher model. With those hard samples (the hard sample constraint), we can approximately estimate the upper bound of the true model discrepancy between the teacher and the student, and optimize it to train the student model.
 
