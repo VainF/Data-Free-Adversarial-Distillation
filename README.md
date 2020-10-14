@@ -49,12 +49,7 @@ Download datasets from the following links and extract them to *./data*:
 
 #### Caltech101 
 
-1. Download [Caltech101](http://www.vision.caltech.edu/Image_Datasets/Caltech101) and extract it to *./data/caltech101*
-2. Split datasets
-    ```bash
-    cd data
-    python split_caltech101.py
-    ```
+Download the splitted [Caltech101_split](https://www.dropbox.com/s/pphsk54cv8uut8d/101_ObjectCategories_split.zip?dl=0) and extract it to *./data/caltech101/101_ObjectCategories_split*
 
 #### CamVid
 
